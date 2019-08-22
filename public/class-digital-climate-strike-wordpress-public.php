@@ -99,16 +99,8 @@ class Digital_Climate_Strike_Wordpress_Public {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-        $display_plugin_setup_page = (get_option('display_plugin_setup_page') ? get_option('display_plugin_setup_page') : false);
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/digital-climate-strike-wordpress-public.js', array( 'jquery' ), $this->version, false );
-        wp_localize_script($this->plugin_name, 'admin_urls',
-            array(
-                'admin_ajax' => admin_url( 'admin-ajax.php'),
-                'post_id' => $post->ID,
-                'postNonce' => wp_create_nonce( 'myajax-post-nonce' )
-            )
-        );
 	}
 
 }
