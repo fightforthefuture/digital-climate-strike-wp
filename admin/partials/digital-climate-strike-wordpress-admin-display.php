@@ -15,6 +15,7 @@ if ( ! defined( 'WPINC' ) ) die;
         $always_show_widget = ( isset( $options['always_show_widget'] ) && ! empty( $options['always_show_widget'] ) ) ? 1 : 0;
         $cookie_expiration_days = ( isset( $options['cookie_expiration_days'] ) && ! empty( $options['cookie_expiration_days'] ) ) ? esc_attr($options['cookie_expiration_days']) : 1;
         $disable_google_analytics = ( isset( $options['disable_google_analytics'] ) && ! empty( $options['disable_google_analytics'] ) ) ? 1 : 0;
+        $show_close_button_on_full_page_widget = ( isset( $options['show_close_button_on_full_page_widget'] ) && ! empty( $options['show_close_button_on_full_page_widget'] ) ) ? 1 : 0;
 
         settings_fields($this->plugin_name);
         do_settings_sections($this->plugin_name);
@@ -60,6 +61,17 @@ if ( ! defined( 'WPINC' ) ) die;
                        name="<?php echo $this->plugin_name; ?>[force_full_page_widget]"
                        value="1"
                     <?php checked( $force_full_page_widget, 1 ); ?>
+                />
+            </label>
+        </fieldset>
+        <fieldset>
+            <label for="<?php echo $this->plugin_name; ?>-show_close_button_on_full_page_widget">
+                <span><?php esc_attr_e('Show close button on Full Page Widget:', $this->plugin_name); ?></span>
+                <input type="checkbox"
+                       id="<?php echo $this->plugin_name; ?>-show_close_button_on_full_page_widget"
+                       name="<?php echo $this->plugin_name; ?>[show_close_button_on_full_page_widget]"
+                       value="1"
+                    <?php checked( $show_close_button_on_full_page_widget, 1 ); ?>
                 />
             </label>
         </fieldset>

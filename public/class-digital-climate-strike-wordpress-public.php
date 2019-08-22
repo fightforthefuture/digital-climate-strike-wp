@@ -55,7 +55,7 @@ class Digital_Climate_Strike_Wordpress_Public {
 	}
 
 	public function add_partial() {
-        include ('partials/digital-climate-strike-wordpress-public-display.php');
+        include 'partials/digital-climate-strike-wordpress-public-display.php';
     }
 
 	/**

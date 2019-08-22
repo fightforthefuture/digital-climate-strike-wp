@@ -75,13 +75,11 @@ class Digital_Climate_Strike_Wordpress_Admin {
 
     public function validate($input) {
         $valid = array();
-        $valid['force_full_page_widget'] = ( isset( $input['force_full_page_widget'] ) && ! empty( $input['force_full_page_widget'] ) ) ? 1 : 0;
-        $valid['always_show_widget'] = ( isset( $input['always_show_widget'] ) && ! empty( $input['always_show_widget'] ) ) ? 1 : 0;
         $valid['cookie_expiration_days'] = ( isset( $input['cookie_expiration_days'] ) && ! empty( $input['cookie_expiration_days'] ) ) ? esc_attr($input['cookie_expiration_days']) : 1;
-
         $valid['disable_google_analytics'] = ( isset( $input['disable_google_analytics'] ) && ! empty( $input['disable_google_analytics'] ) ) ? 1 : 0;
-        $valid['example_text'] = ( isset( $input['example_text'] ) && ! empty( $input['example_text'] ) ) ? esc_attr( $input['example_text'] ) : 'default';
-        $valid['example_select'] = ( isset($input['example_select'] ) && ! empty( $input['example_select'] ) ) ? esc_attr($input['example_select']) : 1;
+        $valid['always_show_widget'] = ( isset( $input['always_show_widget'] ) && ! empty( $input['always_show_widget'] ) ) ? 1 : 0;
+        $valid['force_full_page_widget'] = ( isset( $input['force_full_page_widget'] ) && ! empty( $input['force_full_page_widget'] ) ) ? 1 : 0;
+        $valid['show_close_button_on_full_page_widget'] = ( isset( $input['show_close_button_on_full_page_widget'] ) && ! empty( $input['show_close_button_on_full_page_widget'] ) ) ? 1 : 0;
         return $valid;
     }
 

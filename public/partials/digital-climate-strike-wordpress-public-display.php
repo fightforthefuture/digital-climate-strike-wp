@@ -17,7 +17,7 @@ $cookieExpirationDays = (int) $options['cookie_expiration_days'];
 $disableGoogleAnalytics = (bool) $options['disable_google_analytics'];
 $alwaysShowWidget = (bool) $options['always_show_widget'];
 $forceFullPageWidget = (bool) $options['force_full_page_widget'];
-
+$showCloseButtonOnFullPageWidget = (bool) $options['show_close_button_on_full_page_widget'];
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
@@ -49,6 +49,26 @@ $forceFullPageWidget = (bool) $options['force_full_page_widget'];
          * Automatically makes the widget full page. Defaults to false.
          */
         forceFullPageWidget: <?= json_encode($forceFullPageWidget) ?>, //@type {boolean}
+
+        /**
+         * For the full page widget, shows a close button "x" and hides the message about the site being
+         * available tomorrow. Defaults to false.
+         */
+        showCloseButtonOnFullPageWidget: <?= json_encode($showCloseButtonOnFullPageWidget) ?>, // @type {boolean}
+
+        /**
+         * The date when the sticky footer widget should start showing on your web site.
+         * Note: the month is one integer less than the number of the month. E.g. 8 is September, not August.
+         * Defaults to new Date() (Today).
+         */
+        footerDisplayStartDate: new Date(), //@ type {Date object}
+
+        /**
+         * The date when the full page widget should showing on your web site for 24 hours.
+         * Note: the month is one integer less than the number of the month. E.g. 8 is September, not August.
+         * Defaults to new Date(2019, 8, 20) (September 20th, 2019)
+         */
+        fullPageDisplayStartDate: new Date(2019, 8, 20) //@ type {Date object}
     }
 </script>
 <script src="https://assets.digitalclimatestrike.net/widget.js" async></script>
