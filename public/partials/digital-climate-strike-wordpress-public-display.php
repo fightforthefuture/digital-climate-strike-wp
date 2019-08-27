@@ -14,6 +14,7 @@
 
 $options = get_option($this->plugin_name);
 $cookieExpirationDays = (int) $options['cookie_expiration_days'];
+$iFrameHost = (string) $options['iframe_host'];
 $disableGoogleAnalytics = (bool) $options['disable_google_analytics'];
 $alwaysShowWidget = (bool) $options['always_show_widget'];
 $forceFullPageWidget = (bool) $options['force_full_page_widget'];
@@ -32,6 +33,11 @@ $showCloseButtonOnFullPageWidget = (bool) $options['show_close_button_on_full_pa
          * one day.
          */
         cookieExpirationDays: 1, // @type {number}
+
+        /**
+         * Allow you to override the iFrame hostname. Defaults to https://assets.digitalclimatestrike.net
+         */
+        iframeHost: <?= json_encode($iFrameHost, JSON_UNESCAPED_SLASHES) ?>, // @type {string}
 
         /**
          * Prevents the widget iframe from loading Google Analytics. Defaults to
@@ -68,7 +74,7 @@ $showCloseButtonOnFullPageWidget = (bool) $options['show_close_button_on_full_pa
          * Note: the month is one integer less than the number of the month. E.g. 8 is September, not August.
          * Defaults to new Date(2019, 8, 20) (September 20th, 2019)
          */
-        fullPageDisplayStartDate: new Date(2019, 8, 20) //@ type {Date object}
+        fullPageDisplayStartDate: new Date(2019, 8, 20), //@ type {Date object}
     }
 </script>
 <script src="https://assets.digitalclimatestrike.net/widget.js" async></script>

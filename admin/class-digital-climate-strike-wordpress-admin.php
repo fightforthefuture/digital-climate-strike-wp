@@ -76,6 +76,7 @@ class Digital_Climate_Strike_Wordpress_Admin {
     public function validate($input) {
         $valid = array();
         $valid['cookie_expiration_days'] = ( isset( $input['cookie_expiration_days'] ) && ! empty( $input['cookie_expiration_days'] ) ) ? esc_attr($input['cookie_expiration_days']) : 1;
+        $valid['iframe_host'] = ( isset( $input['iframe_host'] ) && ! empty( $input['iframe_host'] ) ) ? esc_attr($input['iframe_host']) : 'https://assets.digitalclimatestrike.net';
         $valid['disable_google_analytics'] = ( isset( $input['disable_google_analytics'] ) && ! empty( $input['disable_google_analytics'] ) ) ? 1 : 0;
         $valid['always_show_widget'] = ( isset( $input['always_show_widget'] ) && ! empty( $input['always_show_widget'] ) ) ? 1 : 0;
         $valid['force_full_page_widget'] = ( isset( $input['force_full_page_widget'] ) && ! empty( $input['force_full_page_widget'] ) ) ? 1 : 0;
