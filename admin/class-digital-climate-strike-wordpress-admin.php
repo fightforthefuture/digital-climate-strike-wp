@@ -72,6 +72,9 @@ class Digital_Climate_Strike_Wordpress_Admin {
         include_once( 'partials/' . $this->plugin_name . '-admin-display.php' );
     }
 
+    private function fieldIsSet($input, $field ) {
+	    return ( isset( $input[$field] ) && ! empty( $input[$field] ) );
+    }
 
     public function validate($input) {
         $valid = array();
@@ -81,6 +84,10 @@ class Digital_Climate_Strike_Wordpress_Admin {
         $valid['always_show_widget'] = ( isset( $input['always_show_widget'] ) && ! empty( $input['always_show_widget'] ) ) ? 1 : 0;
         $valid['force_full_page_widget'] = ( isset( $input['force_full_page_widget'] ) && ! empty( $input['force_full_page_widget'] ) ) ? 1 : 0;
         $valid['show_close_button_on_full_page_widget'] = ( isset( $input['show_close_button_on_full_page_widget'] ) && ! empty( $input['show_close_button_on_full_page_widget'] ) ) ? 1 : 0;
+
+        $valid['footer_display_start_date'] = $this -> fieldIsSet($input, 'footer_display_start_date') ? esc_attr($input['footer_display_start_date']) : date("Y/m/d");
+        $valid['full_page_display_start_date'] = $this -> fieldIsSet($input, 'full_page_display_start_date') ? esc_attr($input['full_page_display_start_date']) : date("2019/09/20");
+
         return $valid;
     }
 

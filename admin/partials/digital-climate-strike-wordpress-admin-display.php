@@ -18,6 +18,9 @@ if ( ! defined( 'WPINC' ) ) die;
         $disable_google_analytics = ( isset( $options['disable_google_analytics'] ) && ! empty( $options['disable_google_analytics'] ) ) ? 1 : 0;
         $show_close_button_on_full_page_widget = ( isset( $options['show_close_button_on_full_page_widget'] ) && ! empty( $options['show_close_button_on_full_page_widget'] ) ) ? 1 : 0;
 
+        $footer_display_start_date = $this -> fieldIsSet($options, 'footer_display_start_date') ? esc_attr($options['footer_display_start_date']) : date("Y/m/d");
+        $full_page_display_start_date = $this -> fieldIsSet($options, 'full_page_display_start_date') ? esc_attr($options['full_page_display_start_date']) : date("Y/m/d");
+
         settings_fields($this->plugin_name);
         do_settings_sections($this->plugin_name);
         ?>
@@ -78,6 +81,27 @@ if ( ! defined( 'WPINC' ) ) die;
                        name="<?php echo $this->plugin_name; ?>[show_close_button_on_full_page_widget]"
                        value="1"
                     <?php checked( $show_close_button_on_full_page_widget, 1 ); ?>
+                />
+            </label>
+        </fieldset>
+        <fieldset>
+            <label for="<?php echo $this->plugin_name; ?>-footer_display_start_date">
+                <span><?php esc_attr_e('Footer display start date:', $this->plugin_name); ?></span>
+                <input type="date"
+                       id="<?php echo $this->plugin_name; ?>-footer_display_start_date"
+                       name="<?php echo $this->plugin_name; ?>[footer_display_start_date]"
+                       value="<?= !empty( $footer_display_start_date ) ? $footer_display_start_date : ""; ?>"
+                />
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <label for="<?php echo $this->plugin_name; ?>-full_page_display_start_date">
+                <span><?php esc_attr_e('Full page display start date:', $this->plugin_name); ?></span>
+                <input type="date"
+                       id="<?php echo $this->plugin_name; ?>-full_page_display_start_date"
+                       name="<?php echo $this->plugin_name; ?>[full_page_display_start_date]"
+                       value="<?= !empty( $full_page_display_start_date ) ? $full_page_display_start_date : ""; ?>"
                 />
             </label>
         </fieldset>

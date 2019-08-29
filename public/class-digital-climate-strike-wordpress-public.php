@@ -103,4 +103,13 @@ class Digital_Climate_Strike_Wordpress_Public {
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/digital-climate-strike-wordpress-public.js', array( 'jquery' ), $this->version, false );
 	}
 
+    public function getDateField($format, $input) {
+        $value = date($input);
+        return (int)date($format, strtotime('-1 months', strtotime($value)));
+    }
+
+    private function fieldIsSet($input, $field ) {
+        return ( isset( $input[$field] ) && ! empty( $input[$field] ) );
+    }
+
 }
