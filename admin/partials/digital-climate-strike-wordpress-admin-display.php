@@ -103,7 +103,7 @@ if ( ! defined( 'WPINC' ) ) die;
                 <input type="date"
                        id="<?php echo $this->plugin_name; ?>-footer_display_start_date"
                        name="<?php echo $this->plugin_name; ?>[footer_display_start_date]"
-                       value="<?= !empty( $footer_display_start_date ) ? $footer_display_start_date : ""; ?>"
+                       value="<?= !empty( $footer_display_start_date ) ? $footer_display_start_date : ''; ?>"
                 />
             </label>
         </fieldset>
@@ -114,7 +114,7 @@ if ( ! defined( 'WPINC' ) ) die;
                 <input type="date"
                        id="<?php echo $this->plugin_name; ?>-full_page_display_start_date"
                        name="<?php echo $this->plugin_name; ?>[full_page_display_start_date]"
-                       value="<?= !empty( $full_page_display_start_date ) ? $full_page_display_start_date : "09/20/2019"; ?>"
+                       value="<?= !empty( $full_page_display_start_date ) ? $full_page_display_start_date : ''; ?>"
                 />
             </label>
         </fieldset>
