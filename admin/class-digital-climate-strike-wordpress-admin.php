@@ -54,25 +54,50 @@ class Digital_Climate_Strike_Wordpress_Admin {
 
 	}
 
+    /**
+     * Adds a link to the options page in the Settings section of the menu.
+     */
     public function add_plugin_admin_menu() {
-        add_submenu_page( 'plugins.php',
-            'Digital Climate Strike Settings', 'Digital Climate Strike Settings', 'manage_options',
+        add_submenu_page( 'options-general.php',
+            'Digital #ClimateStrike Settings', 'Digital #ClimateStrike Settings', 'manage_options',
             $this->plugin_name, array($this, 'display_plugin_setup_page')
         );
     }
 
-    public function add_action_links( $links ) {
+    /**
+     * @param $links
+     * @return array
+     */
+    public function add_action_links($links ) {
         $settings_link = array(
             '<a href="' . admin_url( 'plugins.php?page=' . $this->plugin_name ) . '">' . __( 'Settings', $this->plugin_name ) . '</a>',
         );
         return array_merge(  $settings_link, $links );
     }
 
+    /**
+     * Renders the plugin settings page.
+     */
     public function display_plugin_setup_page() {
         include_once( 'partials/' . $this->plugin_name . '-admin-display.php' );
     }
 
+    /**
+     * @param $input
+     * @param $field
+     * @return bool
+     */
+    private function field_is_set($input, $field ) {
+	    return ( isset( $input[$field] ) && ! empty( $input[$field] ) );
+    }
 
+    /**
+     *
+     * Validates the plugin settings.
+     * `
+     * @param $input
+     * @return array
+     */
     public function validate($input) {
         $valid = array();
         $valid['cookie_expiration_days'] = ( isset( $input['cookie_expiration_days'] ) && ! empty( $input['cookie_expiration_days'] ) ) ? esc_attr($input['cookie_expiration_days']) : 1;
@@ -81,9 +106,16 @@ class Digital_Climate_Strike_Wordpress_Admin {
         $valid['always_show_widget'] = ( isset( $input['always_show_widget'] ) && ! empty( $input['always_show_widget'] ) ) ? 1 : 0;
         $valid['force_full_page_widget'] = ( isset( $input['force_full_page_widget'] ) && ! empty( $input['force_full_page_widget'] ) ) ? 1 : 0;
         $valid['show_close_button_on_full_page_widget'] = ( isset( $input['show_close_button_on_full_page_widget'] ) && ! empty( $input['show_close_button_on_full_page_widget'] ) ) ? 1 : 0;
+
+        $valid['footer_display_start_date'] = $this->field_is_set($input, 'footer_display_start_date') ? esc_attr($input['footer_display_start_date']) : date("Y/m/d");
+        $valid['full_page_display_start_date'] = $this->field_is_set($input, 'full_page_display_start_date') ? esc_attr($input['full_page_display_start_date']) : date("2019/09/20");
+
         return $valid;
     }
 
+    /**
+     * Updates the plugin settings based on the configured options.
+     */
     public function options_update() {
         register_setting( $this->plugin_name, $this->plugin_name, array( $this, 'validate' ) );
     }

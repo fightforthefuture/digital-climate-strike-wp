@@ -54,7 +54,10 @@ class Digital_Climate_Strike_Wordpress_Public {
 
 	}
 
-	public function add_partial() {
+    /**
+     * This method simply adds the Digital Climate strike widget to the wordpress public site.
+     */
+    public function add_partial() {
         include 'partials/digital-climate-strike-wordpress-public-display.php';
     }
 
@@ -103,4 +106,17 @@ class Digital_Climate_Strike_Wordpress_Public {
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/digital-climate-strike-wordpress-public.js', array( 'jquery' ), $this->version, false );
 	}
 
+
+    /**
+     * This method is used by the public-display partial to instantiate the Javascript Date objects with the
+     * correct integers.
+     *
+     * @param $format
+     * @param $input
+     * @return int
+     */
+    public function get_date_field($format, $input) {
+        $value = date($input);
+        return (int)date($format, strtotime('-1 months', strtotime($value)));
+    }
 }
