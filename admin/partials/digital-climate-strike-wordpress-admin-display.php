@@ -130,7 +130,7 @@ if ( ! defined( 'WPINC' ) ) die;
                        name="<?php echo $this->plugin_name; ?>[footer_display_start_date]"
                        value="<?= !empty( $footer_display_start_date ) ? $footer_display_start_date : '2019-08-01'; ?>"
                 />
-                <p>Allows you to set the date when the footer banner should start showing.</p>
+                <p>Allows you to set the date when the footer banner should start showing. It defaults to an arbitrary date in the past.</p>
             </label>
         </fieldset>
         <fieldset>
