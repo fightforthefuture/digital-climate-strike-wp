@@ -25,6 +25,8 @@ class Digital_Climate_Strike_Wordpress_Admin {
     const DISABLE = 0;
     const FOOTER_DISPLAY_DATE = '2019-08-01';
     const FULL_PAGE_DISPLAY_DATE = '2019-09-20';
+    const COOKIE_EXPIRATION_DAYS = 1;
+    const IFRAME_HOST = 'https://assets.digitalclimatestrike.net';
 
 	/**
 	 * The ID of this plugin.
@@ -106,8 +108,8 @@ class Digital_Climate_Strike_Wordpress_Admin {
         $valid = array();
         $valid['show_digital_strike_widget'] = $this->field_is_set($input, 'show_digital_strike_widget') ? esc_attr($input['show_digital_strike_widget']) : self::DISABLE;
         $valid['language'] = $this->field_is_set($input, 'language') ? esc_attr($input['language']) : 'en';
-        $valid['cookie_expiration_days'] = $this->field_is_set($input, 'cookie_expiration_days') ? esc_attr($input['cookie_expiration_days']) : self::ENABLE;
-        $valid['iframe_host'] = $this->field_is_set($input, 'iframe_host') ? esc_attr($input['iframe_host']) : 'https://assets.digitalclimatestrike.net';
+        $valid['cookie_expiration_days'] = $this->field_is_set($input, 'cookie_expiration_days') ? esc_attr($input['cookie_expiration_days']) : self::COOKIE_EXPIRATION_DAYS;
+        $valid['iframe_host'] = $this->field_is_set($input, 'iframe_host') ? esc_attr($input['iframe_host']) : self::IFRAME_HOST;
         $valid['disable_google_analytics'] = $this->field_is_set($input, 'disable_google_analytics') ? self::ENABLE : self::DISABLE;
         $valid['always_show_widget'] = $this->field_is_set($input, 'always_show_widget') ? self::ENABLE : self::DISABLE;
         $valid['force_full_page_widget'] = $this->field_is_set($input, 'force_full_page_widget') ? self::ENABLE : self::DISABLE;

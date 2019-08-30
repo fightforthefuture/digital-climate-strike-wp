@@ -1,6 +1,7 @@
 
 <?php
 if ( ! defined( 'WPINC' ) ) die;
+use Digital_Climate_Strike_Wordpress_Admin as DcsAdmin;
 ?>
 
 <div class="wrap digital_climate_strike-container">
@@ -17,17 +18,17 @@ if ( ! defined( 'WPINC' ) ) die;
         <p>These options allow you to configure the Digital #climateStrike widget to suit your needs.</p>
         <?php
         $options = get_option($this->plugin_name);
-        $show_digital_strike_widget = $this->field_is_set($options, 'show_digital_strike_widget') ? self::ENABLE : self::DISABLE;
+        $show_digital_strike_widget = $this->field_is_set($options, 'show_digital_strike_widget') ? DcsAdmin::ENABLE : DcsAdmin::DISABLE;
         $language = $this->field_is_set($options, 'language') ? esc_attr($options['language']) : 'en';
-        $force_full_page_widget = $this->field_is_set($options, 'force_full_page_widget') ? self::ENABLE : self::DISABLE;
-        $always_show_widget = $this->field_is_set($options, 'always_show_widget') ? self::ENABLE : self::DISABLE;
-        $iframe_host = $this->field_is_set($options, 'iframe_host') ? esc_attr($options['iframe_host']) : 'https://assets.digitalclimatestrike.net';
-        $cookie_expiration_days = $this->field_is_set($options, 'cookie_expiration_days') ? esc_attr($options['cookie_expiration_days']) : self::ENABLE;
-        $disable_google_analytics = $this->field_is_set($options, 'disable_google_analytics') ? self::ENABLE : self::DISABLE;
-        $show_close_button_on_full_page_widget = $this->field_is_set($options, 'show_close_button_on_full_page_widget') ? self::ENABLE : self::DISABLE;
+        $force_full_page_widget = $this->field_is_set($options, 'force_full_page_widget') ? DcsAdmin::ENABLE : DcsAdmin::DISABLE;
+        $always_show_widget = $this->field_is_set($options, 'always_show_widget') ? DcsAdmin::ENABLE : DcsAdmin::DISABLE;
+        $iframe_host = $this->field_is_set($options, 'iframe_host') ? esc_attr($options['iframe_host']) : DcsAdmin::IFRAME_HOST;
+        $cookie_expiration_days = $this->field_is_set($options, 'cookie_expiration_days') ? esc_attr($options['cookie_expiration_days']) : DcsAdmin::COOKIE_EXPIRATION_DAYS;
+        $disable_google_analytics = $this->field_is_set($options, 'disable_google_analytics') ? DcsAdmin::ENABLE : DcsAdmin::DISABLE;
+        $show_close_button_on_full_page_widget = $this->field_is_set($options, 'show_close_button_on_full_page_widget') ? DcsAdmin::ENABLE : DcsAdmin::DISABLE;
 
-        $footer_display_start_date = $this->field_is_set($options, 'footer_display_start_date') ? esc_attr($options['footer_display_start_date']) : date(self::FOOTER_DISPLAY_DATE);
-        $full_page_display_start_date = $this->field_is_set($options, 'full_page_display_start_date') ? esc_attr($options['full_page_display_start_date']) : date(self::FULL_PAGE_DISPLAY_DATE);
+        $footer_display_start_date = $this->field_is_set($options, 'footer_display_start_date') ? esc_attr($options['footer_display_start_date']) : date(DcsAdmin::FOOTER_DISPLAY_DATE);
+        $full_page_display_start_date = $this->field_is_set($options, 'full_page_display_start_date') ? esc_attr($options['full_page_display_start_date']) : date(DcsAdmin::FULL_PAGE_DISPLAY_DATE);
         settings_fields($this->plugin_name);
         do_settings_sections($this->plugin_name);
         ?>
@@ -71,7 +72,7 @@ if ( ! defined( 'WPINC' ) ) die;
                    class="digital_climate_strike-iframe_host"
                    id="<?php echo $this->plugin_name; ?>-iframe_host"
                    name="<?php echo $this->plugin_name; ?>[iframe_host]"
-                   value="<?= !empty( $iframe_host ) ? $iframe_host : 'https://assets.digitalclimatestrike.net'; ?>"/>
+                   value="<?= !empty( $iframe_host ) ? $iframe_host : DcsAdmin::IFRAME_HOST; ?>"/>
             <p>If you would like to self-host the iFrame source code, you can configure the hostname for this here.</p>
         </fieldset>
         <fieldset>
@@ -119,7 +120,7 @@ if ( ! defined( 'WPINC' ) ) die;
                        value="1"
                     <?php checked( $show_close_button_on_full_page_widget, 1 ); ?>
                 />
-                <p>Makes the full page banner closeable, in case your site is unable to do a complete shutdown on September 20. (<a href="https://assets.digitalclimatestrike.net/demo.html?fullPage&showCloseButton" target="_blank">demo</a>)</p>
+                <p>Makes the full page banner closeable, in case your site is unable to do a complete shutdown on September 20. (<a href="<?= DcsAdmin::IFRAME_HOST ?>/demo.html?fullPage&showCloseButton" target="_blank">demo</a>)</p>
             </label>
         </fieldset>
         <fieldset>
@@ -128,7 +129,7 @@ if ( ! defined( 'WPINC' ) ) die;
                 <input type="date"
                        id="<?php echo $this->plugin_name; ?>-footer_display_start_date"
                        name="<?php echo $this->plugin_name; ?>[footer_display_start_date]"
-                       value="<?= !empty( $footer_display_start_date ) ? $footer_display_start_date : '2019-08-01'; ?>"
+                       value="<?= $footer_display_start_date ?>"
                 />
                 <p>Allows you to set the date when the footer banner should start showing. It defaults to an arbitrary date in the past.</p>
             </label>
@@ -139,7 +140,7 @@ if ( ! defined( 'WPINC' ) ) die;
                 <input type="date"
                        id="<?php echo $this->plugin_name; ?>-full_page_display_start_date"
                        name="<?php echo $this->plugin_name; ?>[full_page_display_start_date]"
-                       value="<?= !empty( $full_page_display_start_date ) ? $full_page_display_start_date : ''; ?>"
+                       value="<?= $full_page_display_start_date ?>"
                 />
                 <p>Allows you to set the date when the full page banner should show.</p>
             </label>
