@@ -12,7 +12,7 @@ TBD
 
 You can change the user experience and do some customization via the `settings` [described below](#customization-options).
 
-If you have any problems or questions regarding the widget, please [submit an issue](https://github.com/global-climate-strikes/digital-climate-strike/issues).
+If you have any problems or questions regarding the widget, please [submit an issue](https://github.com/global-climate-strikes/digital-climate-strike-wordpress/issues).
 
 ## How it works & Demo
 
@@ -34,9 +34,9 @@ Please take a look at [**widget.js**](https://github.com/global-climate-strikes/
 
 The widget is compatible with Firefox, Chrome (desktop and mobile), Safari (desktop and mobile), Microsoft Edge, and Internet Explorer 11.
 
-## Customization options (plugin settings)
+## Customization options
 
-If you modify the `settings` for the plugin, you can pass some properties in to customize the default behavior.
+If you modify the settings for the plugin, you can pass some properties in to customize the default behavior.
 ```
     /**
      * Specify view cookie expiration. After initial view, widget will not be
@@ -61,26 +61,26 @@ If you modify the `settings` for the plugin, you can pass some properties in to 
     iframeHost: 'https://assets.digitalclimatestrike.net'
 
     /**
-     * Prevents the widget iframe from loading Google Analytics. Defaults to
-     * false. (Google Analytics will also be disabled if doNotTrack is set on
+     * Prevents the widget iframe from loading Google Analytics. Not checked
+     * by default. (Google Analytics will also be disabled if doNotTrack is set on
      * the user's browser.)
      */
     disableGoogleAnalytics: false
 
     /**
      * Always show the widget, even when someone has closed the widget and set the cookie on their device. 
-     * Useful for testing. Defaults to false.
+     * Useful for testing. Not checked by default.
      */
     alwaysShowWidget: false
 
     /**
-     * Automatically makes the widget full page. Defaults to false.
+     * Automatically makes the widget full page. Not checked by default.
      */
     forceFullPageWidget: false
     
     /**
     * For the full page widget, shows a close button "x" and hides the message about the site being 
-    * available tomorrow. Defaults to false.
+    * available tomorrow. Not checked by default.
     */
     showCloseButtonOnFullPageWidget: false
     
