@@ -13,6 +13,7 @@
  */
 
 $options = get_option($this->plugin_name);
+$language = (string) $options['language'];
 $cookieExpirationDays = (int) $options['cookie_expiration_days'];
 $iFrameHost = (string) $options['iframe_host'];
 $disableGoogleAnalytics = (bool) $options['disable_google_analytics'];
@@ -26,6 +27,15 @@ $fullPageDisplayStartDate = (string) $options['full_page_display_start_date'];
 
 <script>
     var DIGITAL_CLIMATE_STRIKE_OPTIONS = {
+        /**
+         * Set the language of the widget. We currently support:
+         * 'en': English
+         * 'de': German
+         * 'es': Spanish
+         * Defaults to null, which will obey the nagivator.language setting of the
+         * viewer's browser.
+         */
+        language: <?= json_encode($language) ?>, // @type {string}
         /**
          * Specify view cookie expiration. After initial view, widget will not be
          * displayed to a user again until after this cookie expires. Defaults to
