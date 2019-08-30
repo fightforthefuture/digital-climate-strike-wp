@@ -108,9 +108,8 @@ class Digital_Climate_Strike_Wordpress_Admin {
         $valid['always_show_widget'] = $this->field_is_set($input, 'always_show_widget') ? 1 : 0;
         $valid['force_full_page_widget'] = $this->field_is_set($input, 'force_full_page_widget') ? 1 : 0;
         $valid['show_close_button_on_full_page_widget'] = $this->field_is_set($input, 'show_close_button_on_full_page_widget') ? 1 : 0;
-        $valid['footer_display_start_date'] = $this->field_is_set($input, 'footer_display_start_date') ? esc_attr($input['footer_display_start_date']) : date("Y/m/d");
-        $valid['full_page_display_start_date'] = $this->field_is_set($input, 'full_page_display_start_date') ? esc_attr($input['full_page_display_start_date']) : date("2019/09/20");
-
+        $valid['footer_display_start_date'] = $this->field_is_set($input, 'footer_display_start_date') ? esc_attr($input['footer_display_start_date']) : date('2019-08-01');
+        $valid['full_page_display_start_date'] = $this->field_is_set($input, 'full_page_display_start_date') ? esc_attr($input['full_page_display_start_date']) : date('2019-09-20');
         return $valid;
     }
 
