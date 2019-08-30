@@ -100,7 +100,7 @@ class Digital_Climate_Strike_Wordpress_Admin {
      */
     public function validate($input) {
         $valid = array();
-
+        $valid['show_digital_strike_widget'] = $this->field_is_set($input, 'show_digital_strike_widget') ? esc_attr($input['show_digital_strike_widget']) : 0;
         $valid['language'] = $this->field_is_set($input, 'language') ? esc_attr($input['language']) : 'en';
         $valid['cookie_expiration_days'] = $this->field_is_set($input, 'cookie_expiration_days') ? esc_attr($input['cookie_expiration_days']) : 1;
         $valid['iframe_host'] = $this->field_is_set($input, 'iframe_host') ? esc_attr($input['iframe_host']) : 'https://assets.digitalclimatestrike.net';

@@ -10,6 +10,7 @@ if ( ! defined( 'WPINC' ) ) die;
         <?php
         //Grab all options
         $options = get_option($this->plugin_name);
+        $show_digital_strike_widget = $this->field_is_set($options, 'show_digital_strike_widget') ? 1 : 0;
         $language = $this->field_is_set($options, 'language') ? esc_attr($options['language']) : 'en';
         $force_full_page_widget = ( isset( $options['force_full_page_widget'] ) && ! empty( $options['force_full_page_widget'] ) ) ? 1 : 0;
         $always_show_widget = ( isset( $options['always_show_widget'] ) && ! empty( $options['always_show_widget'] ) ) ? 1 : 0;
@@ -24,6 +25,17 @@ if ( ! defined( 'WPINC' ) ) die;
         settings_fields($this->plugin_name);
         do_settings_sections($this->plugin_name);
         ?>
+        <fieldset>
+            <label for="<?php echo $this->plugin_name; ?>-show_digital_strike_widget">
+                <span><?php esc_attr_e('Show the Digital #ClimateStrike Widget:', $this->plugin_name); ?></span>
+                <input type="checkbox"
+                       id="<?php echo $this->plugin_name; ?>-show_digital_strike_widget"
+                       name="<?php echo $this->plugin_name; ?>[show_digital_strike_widget]"
+                       value="1"
+                    <?php checked( $show_digital_strike_widget, 1 ); ?>
+                />
+            </label>
+        </fieldset>
         <fieldset>
             <span><?php _e( 'Language:', $this->plugin_name ); ?></span>
             <select
