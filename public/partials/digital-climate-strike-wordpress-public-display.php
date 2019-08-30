@@ -19,14 +19,10 @@ $disableGoogleAnalytics = (bool) $options['disable_google_analytics'];
 $alwaysShowWidget = (bool) $options['always_show_widget'];
 $forceFullPageWidget = (bool) $options['force_full_page_widget'];
 $showCloseButtonOnFullPageWidget = (bool) $options['show_close_button_on_full_page_widget'];
-$footerDisplayStartDate = (string)$options['footer_display_start_date'];
-$fullPageDisplayStartDate = (string)$options['full_page_display_start_date'];
+$footerDisplayStartDate = (string) $options['footer_display_start_date'];
+$fullPageDisplayStartDate = (string) $options['full_page_display_start_date'];
 
 ?>
-
-<!-- This file should primarily consist of HTML with a little bit of PHP. -->
-
-
 
 <script>
     var DIGITAL_CLIMATE_STRIKE_OPTIONS = {
@@ -71,9 +67,9 @@ $fullPageDisplayStartDate = (string)$options['full_page_display_start_date'];
          * Defaults to new Date() (Today).
          */
         footerDisplayStartDate: new Date(
-            <?= $this-> getDateField('Y', $footerDisplayStartDate) ?>,
-            <?= $this-> getDateField('m', $footerDisplayStartDate) ?>,
-            <?= $this-> getDateField('d', $footerDisplayStartDate) ?>
+            <?= $this->get_date_field('Y', $footerDisplayStartDate) ?>,
+            <?= $this->get_date_field('m', $footerDisplayStartDate) ?>,
+            <?= $this->get_date_field('d', $footerDisplayStartDate) ?>
         ),
 
         /**
@@ -82,9 +78,9 @@ $fullPageDisplayStartDate = (string)$options['full_page_display_start_date'];
          * Defaults to new Date(2019, 8, 20) (September 20th, 2019)
          */
         fullPageDisplayStartDate: new Date(
-            <?= $this-> getDateField('Y', $fullPageDisplayStartDate) ?>,
-            <?= $this-> getDateField('m', $fullPageDisplayStartDate) ?>,
-            <?= $this-> getDateField('d', $fullPageDisplayStartDate) ?>
+            <?= $this->get_date_field('Y', $fullPageDisplayStartDate) ?>,
+            <?= $this->get_date_field('m', $fullPageDisplayStartDate) ?>,
+            <?= $this->get_date_field('d', $fullPageDisplayStartDate) ?>
         )
     }
 </script>
