@@ -3,12 +3,19 @@
 if ( ! defined( 'WPINC' ) ) die;
 ?>
 
-<div class="wrap">
-    <h2>Digital Climate Strike <?php _e('Options', $this->plugin_name); ?></h2>
-
-    <form method="post" name="digital_climate_strike_options" action="options.php">
+<div class="wrap digital_climate_strike-container">
+    <h2>Digital #ClimateStrike Widget</h2>
+    <p>This plugin allows anyone with a Wordpress site to add the <a href="https://github.com/fightforthefuture/digital-climate-strike" target="_blank">Digital #ClimateStrike widget</a> with just a few clicks. <a href="#digital_climate_strike_options">Skip to the settings below</a> to turn it on!</p>
+    <h2>How the widget works</h2>
+    <p>When you enable the widget below it will show a footer banner (<a href="https://assets.digitalclimatestrike.net/demo.html" target="_blank">demo</a>) informing visitors that your site is supporting the Global Climate Strike and directs them to also join the strike:</p>
+    <img src="https://digital.globalclimatestrike.net/wp-content/uploads/sites/71/2019/08/DCS_Mockup_Banner2.png" alt="Digital Strike Banner">
+    <p>Then at midnight on September 20th for 24 hours, the banner will expand to be full screen (<a href="https://assets.digitalclimatestrike.net/demo.html?fullPage" target="_blank">demo</a>), showing an unavoidable message that your site is joining the Global #ClimateStrike for the day, directing them to join the Global Climate Strike movement:</p>
+    <img src="https://digital.globalclimatestrike.net/wp-content/uploads/sites/71/2019/08/DCS_Mockup_Full2.png" alt="Digital Climate Strike Full Page">
+    <p>The widget is designed to appear once per user, per device, per day, but can be configured to display at a different interval.</p>
+    <form method="post" name="digital_climate_strike_options" class="digital_climate_strike_options-form" action="options.php" id="digital_climate_strike_options">
+        <h2>Digital #ClimateStrike Banner Settings:</h2>
+        <p>These options allow you to configure the Digital #climateStrike widget to suit your needs.</p>
         <?php
-        //Grab all options
         $options = get_option($this->plugin_name);
         $show_digital_strike_widget = $this->field_is_set($options, 'show_digital_strike_widget') ? 1 : 0;
         $language = $this->field_is_set($options, 'language') ? esc_attr($options['language']) : 'en';
@@ -33,10 +40,11 @@ if ( ! defined( 'WPINC' ) ) die;
                        value="1"
                     <?php checked( $show_digital_strike_widget, 1 ); ?>
                 />
+                <p>This will make the Digital #ClimateStrike banner show up on your site.</p>
             </label>
         </fieldset>
         <fieldset>
-            <span><?php _e( 'Language:', $this->plugin_name ); ?></span>
+            <span><?php esc_attr_e( 'Language:', $this->plugin_name ); ?></span>
             <select
                     data-placeholder="Choose a Language..."
                     id="<?php echo $this->plugin_name; ?>-language"
@@ -46,23 +54,25 @@ if ( ! defined( 'WPINC' ) ) die;
                 <option value="de" <?= !empty( $language ) && $language == 'de' ? 'selected' : '' ?>>German</option>
                 <option value="es" <?= !empty( $language ) && $language == 'es' ? 'selected' : '' ?>>Spanish</option>
             </select>
+            <p>Configure the language you want the banner to show as.</p>
         </fieldset>
         <fieldset>
-        <fieldset>
-            <span><?php _e( 'Cookie Expiration Days:', $this->plugin_name ); ?></span>
+            <span><?php esc_attr_e( 'Cookie Expiration Days:', $this->plugin_name ); ?></span>
             <input type="number"
-                   class="cookie_expiration_days"
+                   class="digital_climate_strike-cookie_expiration_days"
                    id="<?php echo $this->plugin_name; ?>-cookie_expiration_days"
                    name="<?php echo $this->plugin_name; ?>[cookie_expiration_days]"
                    value="<?= !empty( $cookie_expiration_days ) ? $cookie_expiration_days : 1; ?>"/>
+            <p>If the user closes the banner, we set a cookie so they won't see it again on that device of this number of days.</p>
         </fieldset>
         <fieldset>
-            <span><?php _e( 'iFrame Host:', $this->plugin_name ); ?></span>
+            <span><?php esc_attr_e( 'iFrame Host:', $this->plugin_name ); ?></span>
             <input type="url"
-                   class="cookie_expiration_days"
+                   class="digital_climate_strike-iframe_host"
                    id="<?php echo $this->plugin_name; ?>-iframe_host"
                    name="<?php echo $this->plugin_name; ?>[iframe_host]"
                    value="<?= !empty( $iframe_host ) ? $iframe_host : 'https://assets.digitalclimatestrike.net'; ?>"/>
+            <p>If you would like to self-host the iFrame source code, you can configure the hostname for this here.</p>
         </fieldset>
         <fieldset>
             <label for="<?php echo $this->plugin_name; ?>-disable_google_analytics">
@@ -73,6 +83,7 @@ if ( ! defined( 'WPINC' ) ) die;
                        value="1"
                     <?php checked( $disable_google_analytics, 1 ); ?>
                 />
+                <p>Removes Google Analytics tracking from the banner.</p>
             </label>
         </fieldset>
         <fieldset>
@@ -84,6 +95,7 @@ if ( ! defined( 'WPINC' ) ) die;
                        value="1"
                     <?php checked( $always_show_widget, 1 ); ?>
                 />
+                <p>Even if someone has closed the widget, this will make it show. Useful for testing purposes.</p>
             </label>
         </fieldset>
         <fieldset>
@@ -95,6 +107,7 @@ if ( ! defined( 'WPINC' ) ) die;
                        value="1"
                     <?php checked( $force_full_page_widget, 1 ); ?>
                 />
+                <p>Enforces the full page widget. Useful for testing.</p>
             </label>
         </fieldset>
         <fieldset>
@@ -106,6 +119,7 @@ if ( ! defined( 'WPINC' ) ) die;
                        value="1"
                     <?php checked( $show_close_button_on_full_page_widget, 1 ); ?>
                 />
+                <p>Makes the full page banner closeable, in case your site is unable to do a complete shutdown on September 20. (<a href="https://assets.digitalclimatestrike.net/demo.html?fullPage&showCloseButton" target="_blank">demo</a>)</p>
             </label>
         </fieldset>
         <fieldset>
@@ -116,9 +130,9 @@ if ( ! defined( 'WPINC' ) ) die;
                        name="<?php echo $this->plugin_name; ?>[footer_display_start_date]"
                        value="<?= !empty( $footer_display_start_date ) ? $footer_display_start_date : '2019-08-01'; ?>"
                 />
+                <p>Allows you to set the date when the footer banner should start showing.</p>
             </label>
         </fieldset>
-
         <fieldset>
             <label for="<?php echo $this->plugin_name; ?>-full_page_display_start_date">
                 <span><?php esc_attr_e('Full page display start date:', $this->plugin_name); ?></span>
@@ -127,9 +141,9 @@ if ( ! defined( 'WPINC' ) ) die;
                        name="<?php echo $this->plugin_name; ?>[full_page_display_start_date]"
                        value="<?= !empty( $full_page_display_start_date ) ? $full_page_display_start_date : ''; ?>"
                 />
+                <p>Allows you to set the date when the full page banner should show.</p>
             </label>
         </fieldset>
-
         <?php submit_button( __( 'Save all changes', $this->plugin_name ), 'primary','submit', TRUE ); ?>
     </form>
 </div>
