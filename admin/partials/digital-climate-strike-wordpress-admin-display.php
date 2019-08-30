@@ -10,7 +10,7 @@ if ( ! defined( 'WPINC' ) ) die;
         <?php
         //Grab all options
         $options = get_option($this->plugin_name);
-
+        $language = $this->field_is_set($options, 'language') ? esc_attr($options['language']) : 'en';
         $force_full_page_widget = ( isset( $options['force_full_page_widget'] ) && ! empty( $options['force_full_page_widget'] ) ) ? 1 : 0;
         $always_show_widget = ( isset( $options['always_show_widget'] ) && ! empty( $options['always_show_widget'] ) ) ? 1 : 0;
         $iframe_host = ( isset( $options['iframe_host'] ) && ! empty( $options['iframe_host'] ) ) ? esc_attr($options['iframe_host']) : 'https://assets.digitalclimatestrike.net';
@@ -24,6 +24,19 @@ if ( ! defined( 'WPINC' ) ) die;
         settings_fields($this->plugin_name);
         do_settings_sections($this->plugin_name);
         ?>
+        <fieldset>
+            <span><?php _e( 'Language:', $this->plugin_name ); ?></span>
+            <select
+                    data-placeholder="Choose a Language..."
+                    id="<?php echo $this->plugin_name; ?>-language"
+                    name="<?php echo $this->plugin_name; ?>[language]"
+            >
+                <option value="en" <?= !empty( $language ) && $language == 'en' ? 'selected' : '' ?>>English</option>
+                <option value="de" <?= !empty( $language ) && $language == 'de' ? 'selected' : '' ?>>German</option>
+                <option value="es" <?= !empty( $language ) && $language == 'es' ? 'selected' : '' ?>>Spanish</option>
+            </select>
+        </fieldset>
+        <fieldset>
         <fieldset>
             <span><?php _e( 'Cookie Expiration Days:', $this->plugin_name ); ?></span>
             <input type="number"
@@ -101,7 +114,7 @@ if ( ! defined( 'WPINC' ) ) die;
                 <input type="date"
                        id="<?php echo $this->plugin_name; ?>-full_page_display_start_date"
                        name="<?php echo $this->plugin_name; ?>[full_page_display_start_date]"
-                       value="<?= !empty( $full_page_display_start_date ) ? $full_page_display_start_date : ""; ?>"
+                       value="<?= !empty( $full_page_display_start_date ) ? $full_page_display_start_date : "09/20/2019"; ?>"
                 />
             </label>
         </fieldset>

@@ -100,13 +100,14 @@ class Digital_Climate_Strike_Wordpress_Admin {
      */
     public function validate($input) {
         $valid = array();
-        $valid['cookie_expiration_days'] = ( isset( $input['cookie_expiration_days'] ) && ! empty( $input['cookie_expiration_days'] ) ) ? esc_attr($input['cookie_expiration_days']) : 1;
-        $valid['iframe_host'] = ( isset( $input['iframe_host'] ) && ! empty( $input['iframe_host'] ) ) ? esc_attr($input['iframe_host']) : 'https://assets.digitalclimatestrike.net';
-        $valid['disable_google_analytics'] = ( isset( $input['disable_google_analytics'] ) && ! empty( $input['disable_google_analytics'] ) ) ? 1 : 0;
-        $valid['always_show_widget'] = ( isset( $input['always_show_widget'] ) && ! empty( $input['always_show_widget'] ) ) ? 1 : 0;
-        $valid['force_full_page_widget'] = ( isset( $input['force_full_page_widget'] ) && ! empty( $input['force_full_page_widget'] ) ) ? 1 : 0;
-        $valid['show_close_button_on_full_page_widget'] = ( isset( $input['show_close_button_on_full_page_widget'] ) && ! empty( $input['show_close_button_on_full_page_widget'] ) ) ? 1 : 0;
 
+        $valid['language'] = $this->field_is_set($input, 'language') ? esc_attr($input['language']) : 'en';
+        $valid['cookie_expiration_days'] = $this->field_is_set($input, 'cookie_expiration_days') ? esc_attr($input['cookie_expiration_days']) : 1;
+        $valid['iframe_host'] = $this->field_is_set($input, 'iframe_host') ? esc_attr($input['iframe_host']) : 'https://assets.digitalclimatestrike.net';
+        $valid['disable_google_analytics'] = $this->field_is_set($input, 'disable_google_analytics') ? 1 : 0;
+        $valid['always_show_widget'] = $this->field_is_set($input, 'always_show_widget') ? 1 : 0;
+        $valid['force_full_page_widget'] = $this->field_is_set($input, 'force_full_page_widget') ? 1 : 0;
+        $valid['show_close_button_on_full_page_widget'] = $this->field_is_set($input, 'show_close_button_on_full_page_widget') ? 1 : 0;
         $valid['footer_display_start_date'] = $this->field_is_set($input, 'footer_display_start_date') ? esc_attr($input['footer_display_start_date']) : date("Y/m/d");
         $valid['full_page_display_start_date'] = $this->field_is_set($input, 'full_page_display_start_date') ? esc_attr($input['full_page_display_start_date']) : date("2019/09/20");
 
