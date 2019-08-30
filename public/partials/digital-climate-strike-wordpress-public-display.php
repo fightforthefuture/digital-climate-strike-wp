@@ -13,19 +13,19 @@
  */
 
 $options = get_option($this->plugin_name);
-$showDigitalStrikeWidget = (int) $options['show_digital_strike_widget'];
+$show_digital_strike_widget = (int) $options['show_digital_strike_widget'];
 $language = (string) $options['language'];
-$cookieExpirationDays = (int) $options['cookie_expiration_days'];
-$iFrameHost = (string) $options['iframe_host'];
-$disableGoogleAnalytics = (bool) $options['disable_google_analytics'];
-$alwaysShowWidget = (bool) $options['always_show_widget'];
-$forceFullPageWidget = (bool) $options['force_full_page_widget'];
-$showCloseButtonOnFullPageWidget = (bool) $options['show_close_button_on_full_page_widget'];
+$cookie_expiration_days = (int) $options['cookie_expiration_days'];
+$iframe_host = (string) $options['iframe_host'];
+$disable_google_analytics = (bool) $options['disable_google_analytics'];
+$always_show_widget = (bool) $options['always_show_widget'];
+$force_full_page_widget = (bool) $options['force_full_page_widget'];
+$show_close_button_on_full_page_widget = (bool) $options['show_close_button_on_full_page_widget'];
 $footerDisplayStartDate = (string) $options['footer_display_start_date'];
-$fullPageDisplayStartDate = (string) $options['full_page_display_start_date'];
+$full_page_display_start_date = (string) $options['full_page_display_start_date'];
 
 ?>
-<?php if ($showDigitalStrikeWidget): ?>
+<?php if ($show_digital_strike_widget): ?>
     <script>
         var DIGITAL_CLIMATE_STRIKE_OPTIONS = {
             /**
@@ -47,30 +47,30 @@ $fullPageDisplayStartDate = (string) $options['full_page_display_start_date'];
             /**
              * Allow you to override the iFrame hostname. Defaults to https://assets.digitalclimatestrike.net
              */
-            iframeHost: <?= json_encode($iFrameHost, JSON_UNESCAPED_SLASHES) ?>, // @type {string}
+            iframeHost: <?= json_encode($iframe_host, JSON_UNESCAPED_SLASHES) ?>, // @type {string}
 
             /**
              * Prevents the widget iframe from loading Google Analytics. Defaults to
              * false. (Google Analytics will also be disabled if doNotTrack is set on
              * the user's browser.)
              */
-            disableGoogleAnalytics: <?= json_encode($disableGoogleAnalytics) ?>, // @type {boolean}
+            disableGoogleAnalytics: <?= json_encode($disable_google_analytics) ?>, // @type {boolean}
 
             /**
              * Always show the widget. Useful for testing. Defaults to false.
              */
-            alwaysShowWidget: <?= json_encode($alwaysShowWidget) ?>, // @type {boolean}
+            alwaysShowWidget: <?= json_encode($always_show_widget) ?>, // @type {boolean}
 
             /**
              * Automatically makes the widget full page. Defaults to false.
              */
-            forceFullPageWidget: <?= json_encode($forceFullPageWidget) ?>, //@type {boolean}
+            forceFullPageWidget: <?= json_encode($force_full_page_widget) ?>, //@type {boolean}
 
             /**
              * For the full page widget, shows a close button "x" and hides the message about the site being
              * available tomorrow. Defaults to false.
              */
-            showCloseButtonOnFullPageWidget: <?= json_encode($showCloseButtonOnFullPageWidget) ?>, // @type {boolean}
+            showCloseButtonOnFullPageWidget: <?= json_encode($show_close_button_on_full_page_widget) ?>, // @type {boolean}
 
             /**
              * The date when the sticky footer widget should start showing on your web site.
@@ -78,9 +78,9 @@ $fullPageDisplayStartDate = (string) $options['full_page_display_start_date'];
              * Defaults to new Date() (Today).
              */
             footerDisplayStartDate: new Date(
-                <?= $this->get_date_field('Y', $footerDisplayStartDate) ?>,
-                <?= $this->get_date_field('m', $footerDisplayStartDate) ?>,
-                <?= $this->get_date_field('d', $footerDisplayStartDate) ?>
+                <?= $this->get_date_field('Y', $footer_display_start_date) ?>,
+                <?= $this->get_date_field('m', $footer_display_start_date) ?>,
+                <?= $this->get_date_field('d', $footer_display_start_date) ?>
             ),
 
             /**
@@ -89,9 +89,9 @@ $fullPageDisplayStartDate = (string) $options['full_page_display_start_date'];
              * Defaults to new Date(2019, 8, 20) (September 20th, 2019)
              */
             fullPageDisplayStartDate: new Date(
-                <?= $this->get_date_field('Y', $fullPageDisplayStartDate) ?>,
-                <?= $this->get_date_field('m', $fullPageDisplayStartDate) ?>,
-                <?= $this->get_date_field('d', $fullPageDisplayStartDate) ?>
+                <?= $this->get_date_field('Y', $full_page_display_start_date) ?>,
+                <?= $this->get_date_field('m', $full_page_display_start_date) ?>,
+                <?= $this->get_date_field('d', $full_page_display_start_date) ?>
             )
         }
     </script>

@@ -12,12 +12,12 @@ if ( ! defined( 'WPINC' ) ) die;
         $options = get_option($this->plugin_name);
         $show_digital_strike_widget = $this->field_is_set($options, 'show_digital_strike_widget') ? 1 : 0;
         $language = $this->field_is_set($options, 'language') ? esc_attr($options['language']) : 'en';
-        $force_full_page_widget = ( isset( $options['force_full_page_widget'] ) && ! empty( $options['force_full_page_widget'] ) ) ? 1 : 0;
-        $always_show_widget = ( isset( $options['always_show_widget'] ) && ! empty( $options['always_show_widget'] ) ) ? 1 : 0;
-        $iframe_host = ( isset( $options['iframe_host'] ) && ! empty( $options['iframe_host'] ) ) ? esc_attr($options['iframe_host']) : 'https://assets.digitalclimatestrike.net';
-        $cookie_expiration_days = ( isset( $options['cookie_expiration_days'] ) && ! empty( $options['cookie_expiration_days'] ) ) ? esc_attr($options['cookie_expiration_days']) : 1;
-        $disable_google_analytics = ( isset( $options['disable_google_analytics'] ) && ! empty( $options['disable_google_analytics'] ) ) ? 1 : 0;
-        $show_close_button_on_full_page_widget = ( isset( $options['show_close_button_on_full_page_widget'] ) && ! empty( $options['show_close_button_on_full_page_widget'] ) ) ? 1 : 0;
+        $force_full_page_widget = $this->field_is_set($options, 'force_full_page_widget') ? 1 : 0;
+        $always_show_widget = $this->field_is_set($options, 'always_show_widget') ? 1 : 0;
+        $iframe_host = $this->field_is_set($options, 'iframe_host') ? esc_attr($options['iframe_host']) : 'https://assets.digitalclimatestrike.net';
+        $cookie_expiration_days = $this->field_is_set($options, 'cookie_expiration_days') ? esc_attr($options['cookie_expiration_days']) : 1;
+        $disable_google_analytics = $this->field_is_set($options, 'disable_google_analytics') ? 1 : 0;
+        $show_close_button_on_full_page_widget = $this->field_is_set($options, 'show_close_button_on_full_page_widget') ? 1 : 0;
 
         $footer_display_start_date = $this->field_is_set($options, 'footer_display_start_date') ? esc_attr($options['footer_display_start_date']) : date('2019-08-01');
         $full_page_display_start_date = $this->field_is_set($options, 'full_page_display_start_date') ? esc_attr($options['full_page_display_start_date']) : date('2019-09-20');
@@ -118,7 +118,6 @@ if ( ! defined( 'WPINC' ) ) die;
                 />
             </label>
         </fieldset>
-
         <fieldset>
             <label for="<?php echo $this->plugin_name; ?>-full_page_display_start_date">
                 <span><?php esc_attr_e('Full page display start date:', $this->plugin_name); ?></span>
