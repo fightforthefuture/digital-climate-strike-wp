@@ -10,17 +10,17 @@ if ( ! defined( 'WPINC' ) ) die;
         <?php
         //Grab all options
         $options = get_option($this->plugin_name);
-        $show_digital_strike_widget = $this->field_is_set($options, 'show_digital_strike_widget') ? 1 : 0;
+        $show_digital_strike_widget = $this->field_is_set($options, 'show_digital_strike_widget') ? self::ENABLE : self::DISABLE;
         $language = $this->field_is_set($options, 'language') ? esc_attr($options['language']) : 'en';
-        $force_full_page_widget = $this->field_is_set($options, 'force_full_page_widget') ? 1 : 0;
-        $always_show_widget = $this->field_is_set($options, 'always_show_widget') ? 1 : 0;
+        $force_full_page_widget = $this->field_is_set($options, 'force_full_page_widget') ? self::ENABLE : self::DISABLE;
+        $always_show_widget = $this->field_is_set($options, 'always_show_widget') ? self::ENABLE : self::DISABLE;
         $iframe_host = $this->field_is_set($options, 'iframe_host') ? esc_attr($options['iframe_host']) : 'https://assets.digitalclimatestrike.net';
-        $cookie_expiration_days = $this->field_is_set($options, 'cookie_expiration_days') ? esc_attr($options['cookie_expiration_days']) : 1;
-        $disable_google_analytics = $this->field_is_set($options, 'disable_google_analytics') ? 1 : 0;
-        $show_close_button_on_full_page_widget = $this->field_is_set($options, 'show_close_button_on_full_page_widget') ? 1 : 0;
+        $cookie_expiration_days = $this->field_is_set($options, 'cookie_expiration_days') ? esc_attr($options['cookie_expiration_days']) : self::ENABLE;
+        $disable_google_analytics = $this->field_is_set($options, 'disable_google_analytics') ? self::ENABLE : self::DISABLE;
+        $show_close_button_on_full_page_widget = $this->field_is_set($options, 'show_close_button_on_full_page_widget') ? self::ENABLE : self::DISABLE;
 
-        $footer_display_start_date = $this->field_is_set($options, 'footer_display_start_date') ? esc_attr($options['footer_display_start_date']) : date('2019-08-01');
-        $full_page_display_start_date = $this->field_is_set($options, 'full_page_display_start_date') ? esc_attr($options['full_page_display_start_date']) : date('2019-09-20');
+        $footer_display_start_date = $this->field_is_set($options, 'footer_display_start_date') ? esc_attr($options['footer_display_start_date']) : date(self::FOOTER_DISPLAY_DATE);
+        $full_page_display_start_date = $this->field_is_set($options, 'full_page_display_start_date') ? esc_attr($options['full_page_display_start_date']) : date(self::FULL_PAGE_DISPLAY_DATE);
         settings_fields($this->plugin_name);
         do_settings_sections($this->plugin_name);
         ?>
