@@ -8,7 +8,7 @@ Requires PHP: 5.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This plugin allows anyone with a Wordpress site to add the Digital Climate Strike widget with just a few clicks. It shows a banner across the site site informing visitors about the Global Climate Strikes and directs them to also join the strike.
+This plugin allows anyone with a Wordpress site to add the Digital Climate Strike widget with just a few clicks. It shows a banner across the site informing visitors about the Global Climate Strikes and directs them to also join the strike.
 
 == Description ==
 # Digital Climate Strike
