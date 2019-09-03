@@ -10,18 +10,18 @@
  *
  * @link              https://github.com/fightforthefuture
  * @since             1.0.0
- * @package           Digital_Climate_Strike_Wordpress
+ * @package           Digital_Climate_Strike_WP
  *
  * @wordpress-plugin
- * Plugin Name:       Digital Climate Strike Wordpress
- * Plugin URI:        https://github.com/fightforthefuture/digital-climate-strike-wordpress
+ * Plugin Name:       Digital Climate Strike WP
+ * Plugin URI:        https://github.com/fightforthefuture/digital-climate-strike-wp
  * Description:       This plugin allows you to easily add the Digital #ClimateStrike widget to you wordpress site.
  * Version:           1.0.0
  * Author:            Fight For the Future
  * Author URI:        https://github.com/fightforthefuture
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       digital-climate-strike-wordpress
+ * Text Domain:       digital-climate-strike-wp
  * Domain Path:       /languages
  */
 
@@ -35,34 +35,34 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'DIGITAL_CLIMATE_STRIKE_WORDPRESS_VERSION', '1.0.0' );
+define( 'DIGITAL_CLIMATE_STRIKE_WP_VERSION', '1.0.0' );
 
 /**
  * The code that runs during plugin activation.
- * This action is documented in includes/class-digital-climate-strike-wordpress-activator.php
+ * This action is documented in includes/class-digital-climate-strike-wp-activator.php
  */
-function activate_digital_climate_strike_wordpress() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-digital-climate-strike-wordpress-activator.php';
-	Digital_Climate_Strike_Wordpress_Activator::activate();
+function activate_digital_climate_strike_wp() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-digital-climate-strike-wp-activator.php';
+	Digital_Climate_Strike_WP_Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
- * This action is documented in includes/class-digital-climate-strike-wordpress-deactivator.php
+ * This action is documented in includes/class-digital-climate-strike-wp-deactivator.php
  */
-function deactivate_digital_climate_strike_wordpress() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-digital-climate-strike-wordpress-deactivator.php';
-	Digital_Climate_Strike_Wordpress_Deactivator::deactivate();
+function deactivate_digital_climate_strike_wp() {
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-digital-climate-strike-wp-deactivator.php';
+	Digital_Climate_Strike_WP_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_digital_climate_strike_wordpress' );
-register_deactivation_hook( __FILE__, 'deactivate_digital_climate_strike_wordpress' );
+register_activation_hook( __FILE__, 'activate_digital_climate_strike_wp' );
+register_deactivation_hook( __FILE__, 'deactivate_digital_climate_strike_wp' );
 
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-digital-climate-strike-wordpress.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-digital-climate-strike-wp.php';
 
 /**
  * Begins execution of the plugin.
@@ -73,10 +73,10 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-digital-climate-strike-wor
  *
  * @since    1.0.0
  */
-function run_digital_climate_strike_wordpress() {
+function run_digital_climate_strike_wp() {
 
-	$plugin = new Digital_Climate_Strike_Wordpress();
+	$plugin = new Digital_Climate_Strike_WP();
 	$plugin->run();
 
 }
-run_digital_climate_strike_wordpress();
+run_digital_climate_strike_wp();

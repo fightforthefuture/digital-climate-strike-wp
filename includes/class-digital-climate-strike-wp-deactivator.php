@@ -6,8 +6,8 @@
  * @link       https://github.com/fightforthefuture
  * @since      1.0.0
  *
- * @package    Digital_Climate_Strike_Wordpress
- * @subpackage Digital_Climate_Strike_Wordpress/includes
+ * @package    Digital_Climate_Strike_WP
+ * @subpackage Digital_Climate_Strike_WP/includes
  */
 
 /**
@@ -16,11 +16,11 @@
  * This class defines all code necessary to run during the plugin's deactivation.
  *
  * @since      1.0.0
- * @package    Digital_Climate_Strike_Wordpress
- * @subpackage Digital_Climate_Strike_Wordpress/includes
+ * @package    Digital_Climate_Strike_WP
+ * @subpackage Digital_Climate_Strike_WP/includes
  * @author     Fight For the Future <team@fightforthefuture.org>
  */
-class Digital_Climate_Strike_Wordpress_Deactivator {
+class Digital_Climate_Strike_WP_Deactivator {
 
 	/**
 	 * Short Description. (use period)

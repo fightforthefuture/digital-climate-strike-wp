@@ -6,8 +6,8 @@
  * @link       https://github.com/fightforthefuture
  * @since      1.0.0
  *
- * @package    Digital_Climate_Strike_Wordpress
- * @subpackage Digital_Climate_Strike_Wordpress/includes
+ * @package    Digital_Climate_Strike_WP
+ * @subpackage Digital_Climate_Strike_WP/includes
  */
 
 /**
@@ -17,11 +17,11 @@
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    Digital_Climate_Strike_Wordpress
- * @subpackage Digital_Climate_Strike_Wordpress/includes
+ * @package    Digital_Climate_Strike_WP
+ * @subpackage Digital_Climate_Strike_WP/includes
  * @author     Fight For the Future <team@fightforthefuture.org>
  */
-class Digital_Climate_Strike_Wordpress_Loader {
+class Digital_Climate_Strike_WP_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.

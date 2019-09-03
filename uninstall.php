@@ -22,7 +22,7 @@
  * @link       https://github.com/fightforthefuture
  * @since      1.0.0
  *
- * @package    Digital_Climate_Strike_Wordpress
+ * @package    Digital_Climate_Strike_WP
  */
 
 // If uninstall not called from WordPress, then exit.

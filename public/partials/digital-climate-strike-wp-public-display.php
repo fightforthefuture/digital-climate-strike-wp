@@ -8,8 +8,8 @@
  * @link       https://github.com/fightforthefuture
  * @since      1.0.0
  *
- * @package    Digital_Climate_Strike_Wordpress
- * @subpackage Digital_Climate_Strike_Wordpress/public/partials
+ * @package    Digital_Climate_Strike_WP
+ * @subpackage Digital_Climate_Strike_WP/public/partials
  */
 
 $options = get_option($this->plugin_name);

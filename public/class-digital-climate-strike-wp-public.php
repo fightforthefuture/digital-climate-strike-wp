@@ -6,8 +6,8 @@
  * @link       https://github.com/fightforthefuture
  * @since      1.0.0
  *
- * @package    Digital_Climate_Strike_Wordpress
- * @subpackage Digital_Climate_Strike_Wordpress/public
+ * @package    Digital_Climate_Strike_WP
+ * @subpackage Digital_Climate_Strike_WP/public
  */
 
 /**
@@ -16,11 +16,11 @@
  * Defines the plugin name, version, and two examples hooks for how to
  * enqueue the public-facing stylesheet and JavaScript.
  *
- * @package    Digital_Climate_Strike_Wordpress
- * @subpackage Digital_Climate_Strike_Wordpress/public
+ * @package    Digital_Climate_Strike_WP
+ * @subpackage Digital_Climate_Strike_WP/public
  * @author     Fight For the Future <team@fightforthefuture.org>
  */
-class Digital_Climate_Strike_Wordpress_Public {
+class Digital_Climate_Strike_WP_Public {
 
 	/**
 	 * The ID of this plugin.
@@ -58,7 +58,7 @@ class Digital_Climate_Strike_Wordpress_Public {
      * This method simply adds the Digital Climate strike widget to the wordpress public site.
      */
     public function add_partial() {
-        include 'partials/digital-climate-strike-wordpress-public-display.php';
+        include 'partials/digital-climate-strike-wp-public-display.php';
     }
 
 	/**
@@ -72,15 +72,15 @@ class Digital_Climate_Strike_Wordpress_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Digital_Climate_Strike_Wordpress_Loader as all of the hooks are defined
+		 * defined in Digital_Climate_Strike_WP_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Digital_Climate_Strike_Wordpress_Loader will then create the relationship
+		 * The Digital_Climate_Strike_WP_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/digital-climate-strike-wordpress-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/digital-climate-strike-wp-public.css', array(), $this->version, 'all' );
 
 	}
 
@@ -95,15 +95,15 @@ class Digital_Climate_Strike_Wordpress_Public {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Digital_Climate_Strike_Wordpress_Loader as all of the hooks are defined
+		 * defined in Digital_Climate_Strike_WP_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Digital_Climate_Strike_Wordpress_Loader will then create the relationship
+		 * The Digital_Climate_Strike_WP_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/digital-climate-strike-wordpress-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/digital-climate-strike-wp-public.js', array( 'jquery' ), $this->version, false );
 	}
 
 
