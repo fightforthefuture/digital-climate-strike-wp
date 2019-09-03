@@ -9,9 +9,9 @@ use Digital_Climate_Strike_WP_Admin as DcsAdmin;
     <p>This plugin allows anyone with a Wordpress site to add the <a href="https://github.com/fightforthefuture/digital-climate-strike" target="_blank">Digital #ClimateStrike widget</a> with just a few clicks. <a href="#digital_climate_strike_options">Skip to the settings below</a> to turn it on!</p>
     <h2>How the widget works</h2>
     <p>When you enable the widget below it will show a footer banner (<a href="https://assets.digitalclimatestrike.net/demo.html" target="_blank">demo</a>) informing visitors that your site is supporting the Global Climate Strike and directs them to also join the strike:</p>
-    <img src="https://digital.globalclimatestrike.net/wp-content/uploads/sites/71/2019/08/DCS_Mockup_Banner2.png" alt="Digital Strike Banner">
+    <img src="../wp-content/plugins/<?= $this->plugin_name ?>/assets/screenshot-1.png" alt="Digital Strike Banner">
     <p>Then at midnight on September 20th for 24 hours, the banner will expand to be full screen (<a href="https://assets.digitalclimatestrike.net/demo.html?fullPage" target="_blank">demo</a>), showing an unavoidable message that your site is joining the Global #ClimateStrike for the day, directing them to join the Global Climate Strike movement:</p>
-    <img src="https://digital.globalclimatestrike.net/wp-content/uploads/sites/71/2019/08/DCS_Mockup_Full2.png" alt="Digital Climate Strike Full Page">
+    <img src="../wp-content/plugins/<?= $this->plugin_name ?>/assets/screenshot-2.png" alt="Digital Climate Strike Full Page">
     <p>The widget is designed to appear once per user, per device, per day, but can be configured to display at a different interval.</p>
     <form method="post" name="digital_climate_strike_options" class="digital_climate_strike_options-form" action="options.php" id="digital_climate_strike_options">
         <h2>Digital #ClimateStrike Banner Settings:</h2>
