@@ -1,6 +1,7 @@
 
 <?php
 if ( ! defined( 'WPINC' ) ) die;
+use Digital_Climate_Strike_WP_Admin as DcsAdmin;
 ?>
 
 <div class="wrap digital_climate_strike-container">
