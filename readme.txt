@@ -19,7 +19,7 @@ The Digital Climate Strike's Wordpress plugin will allow anyone with a website t
 
 ## How it works & Demo
 
-When you install this plugin an enable the Digital Strike widget via Settings in your Wordpress admin, it will show a footer banner ([demo](https://assets.digitalclimatestrike.net/demo.html)) informing visitors that your site is supporting the Global Climate Strike and directs them to also join the strike:
+When you install this plugin and enable the Digital Strike widget via Settings in your Wordpress admin, it will show a footer banner ([demo](https://assets.digitalclimatestrike.net/demo.html)) informing visitors that your site is supporting the Global Climate Strike and directs them to also join the strike:
 
 ![A screenshot of the Digital Climate Strike footer widget](https://digital.globalclimatestrike.net/wp-content/uploads/sites/71/2019/08/DCS_Mockup_Banner2.png)
 
