@@ -21,7 +21,7 @@ $disable_google_analytics = (bool) $options['disable_google_analytics'];
 $always_show_widget = (bool) $options['always_show_widget'];
 $force_full_page_widget = (bool) $options['force_full_page_widget'];
 $show_close_button_on_full_page_widget = (bool) $options['show_close_button_on_full_page_widget'];
-$footerDisplayStartDate = (string) $options['footer_display_start_date'];
+$footer_display_start_date = (string) $options['footer_display_start_date'];
 $full_page_display_start_date = (string) $options['full_page_display_start_date'];
 
 ?>
