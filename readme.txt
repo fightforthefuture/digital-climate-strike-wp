@@ -8,7 +8,7 @@ Requires PHP: 5.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This component allows anyone using React to join the Digital #ClimateStrike. It is a banner that informing visitors about the Global Climate Strikes and directs them to join the strike.
+This plugin allows anyone with a WordPress site to join the Digital #ClimateStrike with a few clicks. It is a banner that informs visitors about the Global Climate Strike on September 20th and directs them to join the strike.
 
 == Description ==
 # Digital Climate Strike
@@ -40,7 +40,7 @@ The widget is compatible with Firefox, Chrome (desktop and mobile), Safari (desk
 There are a number of ways to customize the widget in the Wordpress Settings admin section.  It provides details on what each option does. 
 
 == Installation ==
-1. Upload the plugin files to the `/wp-content/plugins/plugin-name` directory, or install the plugin through the WordPress plugins screen directly.
+1. Upload the plugin files to the `/wp-content/plugins/digital-climate-strike-wp` directory, or install the plugin through the WordPress plugins screen directly.
 1. Activate the plugin through the \'Plugins\' screen in WordPress
 1. Use the Settings->Digital #ClimateStrike Settings screen to enable the widget and configure its behaviour
 
