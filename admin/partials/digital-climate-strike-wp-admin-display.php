@@ -54,6 +54,7 @@ use Digital_Climate_Strike_WP_Admin as DcsAdmin;
                 <option value="en" <?= !empty( $language ) && $language == 'en' ? 'selected' : '' ?>>English</option>
                 <option value="de" <?= !empty( $language ) && $language == 'de' ? 'selected' : '' ?>>German</option>
                 <option value="es" <?= !empty( $language ) && $language == 'es' ? 'selected' : '' ?>>Spanish</option>
+                <option value="cs" <?= !empty( $language ) && $language == 'cs' ? 'selected' : '' ?>>Czech</option>
             </select>
             <p>Configure the language you want the banner to show as.</p>
         </fieldset>
