@@ -33,6 +33,7 @@ $full_page_display_start_date = (string) $options['full_page_display_start_date'
              * 'en': English
              * 'de': German
              * 'es': Spanish
+             * 'cs': Czech
              * Defaults to null, which will obey the nagivator.language setting of the
              * viewer's browser.
              */
