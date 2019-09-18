@@ -34,7 +34,11 @@ $full_page_display_start_date = (string) $options['full_page_display_start_date'
              * 'de': German
              * 'es': Spanish
              * 'cs': Czech
-             * Defaults to null, which will obey the nagivator.language setting of the
+             * 'fr': French
+             * 'nl': Dutch
+             * 'tr': Turkish
+             * 'pt': Portuguese
+             * Defaults to null, which will obey the navigator.language setting of the
              * viewer's browser.
              */
             language: <?= json_encode($language) ?>, // @type {string}
